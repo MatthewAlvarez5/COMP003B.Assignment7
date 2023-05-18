@@ -24,7 +24,7 @@ namespace COMP003B.Assignment7.Controllers
         {
               return _context.Songs != null ? 
                           View(await _context.Songs.ToListAsync()) :
-                          Problem("Entity set 'WebDevAcademyContext.Songs'  is null.");
+                          Problem("Entity set 'WebDevAcademyContext.Songs' is null.");
         }
 
         // GET: Songs/Details/5
@@ -35,12 +35,18 @@ namespace COMP003B.Assignment7.Controllers
                 return NotFound();
             }
 
-            var song = await _context.Songs
-                .FirstOrDefaultAsync(m => m.SongId == id);
+            var song = await _context.Songs.FirstOrDefaultAsync(m => m.SongId == id);
             if (song == null)
             {
                 return NotFound();
             }
+
+            var artists = from a in _context.Artists
+                           join m in _context.SongArtists on a.ArtistId equals m.ArtistId
+                           join s in _context.Songs on m.SongId equals s.SongId
+                           where s.SongId == id
+                           select a;
+
 
             return View(song);
         }

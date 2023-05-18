@@ -42,6 +42,13 @@ namespace COMP003B.Assignment7.Controllers
                 return NotFound();
             }
 
+            var songs   = from a in _context.Artists
+                          join m in _context.SongArtists on a.ArtistId equals m.ArtistId
+                          join s in _context.Songs on m.SongId equals s.SongId
+                          where a.ArtistId == id
+                          select s;
+
+
             return View(artist);
         }
 

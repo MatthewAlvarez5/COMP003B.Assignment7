@@ -13,8 +13,8 @@ namespace COMP003B.Assignment7.Models
         [Required]
         public string SongAlbum { get; set;}
         
-        public virtual ICollection<Song>? Songs { get;set; }
+        public virtual ICollection<SongArtist>? SongArtists { get;set; }
 
-        public int ReleaseYear { get; set; } // New Property
+        
     }
 }

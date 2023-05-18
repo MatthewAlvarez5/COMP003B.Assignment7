@@ -21,9 +21,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.SongAlbum)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseYear)
-            </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -38,9 +36,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SongAlbum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseYear)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.SongId">Edit</a> |

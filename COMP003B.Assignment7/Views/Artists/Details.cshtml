@@ -36,6 +36,17 @@
         </dd>
     </dl>
 </div>
+
+<div class="col-md-4">
+    <h4>Artists</h4>
+    <ul>
+        @foreach (Artist artist in ViewBag.Artists)
+        {
+            <li>@artist.ArtistAlias</li>
+        }
+    </ul>
+</div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.ArtistId">Edit</a> |
     <a asp-action="Index">Back to List</a>
