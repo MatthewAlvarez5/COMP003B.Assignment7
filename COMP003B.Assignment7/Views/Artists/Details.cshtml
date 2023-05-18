@@ -38,11 +38,11 @@
 </div>
 
 <div class="col-md-4">
-    <h4>Artists</h4>
+    <h4>Songs</h4>
     <ul>
-        @foreach (Artist artist in ViewBag.Artists)
+        @foreach (Song song in ViewBag.Songs)
         {
-            <li>@artist.ArtistAlias</li>
+            <li>@song.SongName</li>
         }
     </ul>
 </div>
