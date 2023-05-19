@@ -50,7 +50,7 @@ namespace COMP003B.Assignment7.Controllers
         public IActionResult Create()
         {
             ViewData["ArtistId"] = new SelectList(_context.Artists, "ArtistId", "ArtistAlias");
-            ViewData["SongId"] = new SelectList(_context.Songs, "SongId", "SongAlbum");
+            ViewData["SongId"] = new SelectList(_context.Songs, "SongId", "SongName");
             return View();
         }
 
@@ -86,7 +86,7 @@ namespace COMP003B.Assignment7.Controllers
                 return NotFound();
             }
             ViewData["ArtistId"] = new SelectList(_context.Artists, "ArtistId", "ArtistAlias", songArtist.ArtistId);
-            ViewData["SongId"] = new SelectList(_context.Songs, "SongId", "SongAlbum", songArtist.SongId);
+            ViewData["SongId"] = new SelectList(_context.Songs, "SongId", "SongName", songArtist.SongId);
             return View(songArtist);
         }
 
